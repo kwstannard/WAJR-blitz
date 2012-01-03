@@ -1,0 +1,9 @@
+sprite - overarching thing
+  active state
+  ImageObject - image related stuff
+    image strip
+  GameObject - thing that handles interactions with the rest of the game
+    position
+    collisions
+    life state
+    AIObject
