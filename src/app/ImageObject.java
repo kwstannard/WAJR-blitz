@@ -11,7 +11,7 @@ import java.net.URL;
 import classes.Point2D;
 
 
-public class ImageObject extends GameObject {
+public class ImageObject {
 
   protected Image image;
   protected Applet applet;
@@ -19,29 +19,33 @@ public class ImageObject extends GameObject {
   protected Graphics2D g2d;
 
   private int totalFrames;
+  public int frame = 0;
 
   ImageObject() {
-
     setImage(null);
-    setAlive(true);
   }
 
-  public boolean isLastFrame(int frame) {
+  public void nextFrame() {
+    frame++;
+    if (isLastFrame())
+      frame = 0;
+  }
+
+  public boolean isLastFrame() {
     return frame == totalFrames;
+  }
+
+  public void setImage(Image image, int frames) {
+    this.image = image;
+    totalFrames = frames;
   }
 
   public Image getImage() {return image;}
   //TODO return circle shape
-  public Rectangle getBounds() {
-    return new Rectangle((int)getX(), (int)getY(), getWidth(), getWidth());
-  }
 
   public void setGraphics( Graphics2D g) {g2d = g;}
   public void setImage(Image image) {
     this.image = image;
-    double x = applet.getWidth() / 2 - getWidth() / 2;
-    double y = applet.getHeight() / 2 - getWidth() / 2;
-    at = AffineTransform.getTranslateInstance(x, y);		
   }
 
   private URL getURL(String filename) {

@@ -18,19 +18,6 @@ public class SpriteTest {
     sprite = new Sprite(imageObject);
   }
 
-  @Test public void maintainFrameCount() {
-    assertEquals(0, sprite.frame);
-    sprite.nextFrame();
-    assertEquals(1, sprite.frame);
-  }
-
-  @Test public void frameCountReturnsToZeroAfterLastFrame() {
-    Mockito.when(imageObject.isLastFrame(2)).thenReturn(true);
-    sprite.nextFrame();
-    sprite.nextFrame();
-    assertEquals(0, sprite.frame);
-  }
-
   @Test public void tellsImageObjectWhatFrameToDrawAndThePosition() {
     sprite.nextFrame();
     sprite.draw();

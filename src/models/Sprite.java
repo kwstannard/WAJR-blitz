@@ -12,7 +12,6 @@ import app.ImageObject;
 
 public class Sprite {
 
-  public int frame = 0;
   public ImageObject imageStrip;
   public double x = 0;
   public double y = 0;
@@ -24,9 +23,7 @@ public class Sprite {
   }
 
   public void nextFrame() {
-    frame++;
-    if (imageStrip.isLastFrame(frame))
-      frame = 0;
+    imageStrip.nextFrame();
   }
 
   public void draw() {
