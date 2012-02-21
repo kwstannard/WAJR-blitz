@@ -5,8 +5,8 @@ import static org.junit.Assert.*;
 import org.mockito.Mockito;
 import org.junit.*;
 
-import app.ImageObject;
 import classes.Point2D;
+import classes.objects.ImageObject;
 
 public class SpriteTest {
 
